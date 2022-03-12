@@ -21,7 +21,7 @@ def taylor_sin(x:float, order:int):
 
 
 if __name__ == '__main__':
-    x = 1.414
+    x = 3.14
     print(taylor_sin(x, 200))
     import math
     print(math.sin(x))
