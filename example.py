@@ -21,7 +21,14 @@ def taylor_sin(x:float, order:int):
 
 
 if __name__ == '__main__':
+    import time
+    import math
+
+    startTime = time.time()
     x = 3.14
     print(taylor_sin(x, 200))
-    import math
+    testTime = time.time()
+
     print(math.sin(x))
+    mathTime = time.time()
+    print(testTime-startTime, mathTime-testTime)
