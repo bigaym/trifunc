@@ -5,6 +5,7 @@
 时间：2022年3月12日14:07:49
 """
 
+
 def taylor_sin(x:float, order:int):
     """
     使用泰勒公式近似sinx
