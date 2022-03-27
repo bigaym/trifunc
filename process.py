@@ -89,9 +89,9 @@ def taylor_arctan(x: float, order: int):
         return None
 
 
-if __name__ == '__main__':
-    import math
-    x = 200
-    print(taylor_arctan(x, 8))
-    print(math.atan(x))
-    import numpy as np
+# if __name__ == '__main__':
+#     import math
+#     x = 200
+#     print(taylor_arctan(x, 8))
+#     print(math.atan(x))
+#     import numpy as np
