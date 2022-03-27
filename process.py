@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
 """
-在这里处理input模块传过来的数据
+@function： 判断str类型数据是否可以转为float
+@author: 敖钰民
+@last_time： 2022年3月27日19:42:11
 """
-
+# PI的值
+PI = 3.141592653589793
 
 def pow(x: int, n:int):
     """
@@ -25,6 +29,15 @@ def taylor_sin(x: float, order: int):
     :param order:精度
     :return: 结果
     """
+    # 调整到[-PI, PI]
+    ratio = int(x/PI)
+    if (ratio % 2) != 0:
+        if ratio < 0:
+            ratio = ratio - 1
+        elif ratio > 0:
+            ratio = ratio + 1
+    x = x - ratio*PI
+
 
     e = x   # 迭代项
     s = x   # 初始项
@@ -43,6 +56,14 @@ def taylor_cos(x: float, order: int):
     :param order:精度
     :return: 结果
     """
+    # 调整到[-PI, PI]
+    ratio = int(x / PI)
+    if (ratio % 2) != 0:
+        if ratio < 0:
+            ratio = ratio - 1
+        elif ratio > 0:
+            ratio = ratio + 1
+    x = x - ratio * PI
 
     e = 1
     s = 1
@@ -52,6 +73,36 @@ def taylor_cos(x: float, order: int):
             return s
         s += e
     return s
+
+
+def taylor_arcsin(x: float, order: int):
+    """
+    计算arcsin
+    :param x:[-1, 1]
+    :param order: 精确位数
+    :return: 结果
+    """
+    if x == 1:
+        return PI/2
+    elif x == -1:
+        return -PI/2
+    if -1 < x < 1:
+        e = x
+        s = x
+        i = 1
+        n = 1
+        cft = 1
+        while True:
+            e = e * x * x
+            cft = cft * (2 * i - 1) / (2 * i)
+            e1 = cft / (2 * n + 1)
+            e1 = e * e1
+            s = e1 + s
+            i = i + 1
+            n = n + 1
+
+            if abs(e1) <= 1/(pow(10, order+2)):
+                return s
 
 
 def atan(x: float, order: int):
@@ -78,7 +129,6 @@ def taylor_arctan(x: float, order: int):
     :return: 结果,输入错误是返回None
     注意：arctan(x) + arctan(1/x) = pi/2
     """
-    PI = 3.141592653589793
     if (x >= -1) and (x <= 1):
         return atan(x, order)
     elif x > 1:
@@ -89,9 +139,9 @@ def taylor_arctan(x: float, order: int):
         return None
 
 
-# if __name__ == '__main__':
-#     import math
-#     x = 200
-#     print(taylor_arctan(x, 8))
-#     print(math.atan(x))
-#     import numpy as np
+if __name__ == '__main__':
+    import math
+    x = 0.6
+    print(taylor_arcsin(x, 8))
+    print(math.asin(x))
+    import numpy as np

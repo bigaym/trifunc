@@ -1,15 +1,20 @@
+# -*- coding: utf-8 -*-
 """
-在这里简单处理从GUI文本框中读取的数据
+@function： 判断str类型数据是否可以转为float
+@author: 敖钰民
+@last_time： 2022年3月27日19:42:11
 """
 
 
-def input_detect(input: str):
+def isFloat(input: str):
+    """
+    检测输入是否为float
+    :param input:字符串
+    :return:True 是； False 否
+    """
     try:
-        input = float(input)
+        float(input)
     except:
-        return -1
+        return False
     else:
-        return input
-
-if __name__ == '__main__':
-    print(input_detect("0.223"))
+        return True
