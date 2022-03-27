@@ -1,5 +1,4 @@
 # trifunc
-This project is about trigonometric functions sin, cos, arcsin and arctan. We use python to accomplish it.
-
-## v0.0
-实现了使用泰勒公式来近似计算sin(x)
+计算sin,cos,arcsin,arctan
+## v0.5
+初步完成了所有程序设计工作，待调试
