@@ -3,16 +3,13 @@
 """
 
 
-def read_from_gui():
-    """
+def input_detect(input: str):
+    try:
+        input = float(input)
+    except:
+        return -1
+    else:
+        return input
 
-    :return:
-        func:str      表示调用的函数
-        value:float   用户输入的值
-        flag:bool     输入的是角度（0）还是弧度（1）
-    """
-    func = ""
-    value = 0.0
-    flag = int(0)
-
-    return func, value, flag
+if __name__ == '__main__':
+    print(input_detect("0.223"))
