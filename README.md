@@ -1,5 +1,5 @@
 # trifunc
-计算sin,cos,arcsin,arctan, 必要的库：pyqt, 
+计算sin,cos,arcsin,arctan, 必要的库：pyqt,functools
 ## v0.5
 工作完成，待调试所有程序设计
 ## v1.0
